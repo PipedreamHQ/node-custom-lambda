@@ -30,12 +30,12 @@ int main(void) {
   char max_old_space_size[ARG_BUF_SIZE];
   snprintf(max_old_space_size, ARG_BUF_SIZE, "--max-old-space-size=%d", mem_size * 90 / 100);
 
-  execv("/opt/bin/node", (char *[]){
+  execv("/var/task/bin/node", (char *[]){
                              "node",
                              "--expose-gc",
                              max_semi_space_size,
                              max_old_space_size,
-                             "/opt/bootstrap.js",
+                             "/var/task/bootstrap.js",
                              NULL});
   perror("Could not execv");
   return EXIT_FAILURE;
